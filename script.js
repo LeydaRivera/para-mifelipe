@@ -26,22 +26,32 @@ typeWriter();
 
 // 🌳 Corazón matemático
 const leavesContainer = document.getElementById("leaves");
+leavesContainer.innerHTML = "";
 
-for (let i = 0; i < 150; i++) {
+const totalLeaves = 900; // más cantidad = más relleno
+
+for (let i = 0; i < totalLeaves; i++) {
   const leaf = document.createElement("div");
   leaf.classList.add("heart-leaf");
 
-  const angle = Math.random() * Math.PI * 2;
-  const radius = 100 * (1 - Math.sin(angle));
+  let x, y;
 
-  const x = radius * Math.cos(angle);
-  const y = -radius * Math.sin(angle);
+  do {
+    x = Math.random() * 2 - 1;
+    y = Math.random() * 2 - 1;
+  } while (!isInsideHeart(x, y));
 
-  leaf.style.left = 120 + x + "px";
-  leaf.style.top = 120 + y + "px";
-  leaf.style.animationDelay = i * 0.02 + "s";
+  // Ajuste más compacto
+  leaf.style.left = 150 + x * 95 + "px";
+  leaf.style.top = 150 - y * 95 + "px";
+
+  leaf.style.animationDelay = i * 0.002 + "s";
 
   leavesContainer.appendChild(leaf);
+}
+
+function isInsideHeart(x, y) {
+  return Math.pow(x * x + y * y - 1, 3) - x * x * y * y * y <= 0;
 }
 
 // 💜 Corazones cayendo
