@@ -37,7 +37,7 @@ body{
 }
 
 .trunk {
-    width: 30px;
+    width: 25px;
     height: 250px;
     background: #6b3e26;
     position: absolute;
@@ -130,5 +130,6 @@ body{
     opacity:0;
   }
 }
+
 
 
