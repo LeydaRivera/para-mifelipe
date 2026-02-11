@@ -28,26 +28,34 @@ typeWriter();
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const totalLeaves = 900; // más cantidad = más relleno
+const totalLeaves = 1200; // muchísimos para que se vea tupido
 
 for (let i = 0; i < totalLeaves; i++) {
   const leaf = document.createElement("div");
   leaf.classList.add("heart-leaf");
 
-  let x, y;
+  // Coordenadas más compactas
+  let x = Math.random() * 2 - 1;
+  let y = Math.random() * 2 - 1;
 
-  do {
-    x = Math.random() * 2 - 1;
-    y = Math.random() * 2 - 1;
-  } while (!isInsideHeart(x, y));
+  // Fórmula corazón escalada
+  let heart = Math.pow(x * x + y * y - 0.8, 3) - x * x * y * y * y;
 
-  // Ajuste más compacto
-  leaf.style.left = 150 + x * 95 + "px";
-  leaf.style.top = 150 - y * 95 + "px";
+  if (heart <= 0) {
+    leaf.style.left = 150 + x * 110 + "px";
+    leaf.style.top = 140 - y * 110 + "px";
 
-  leaf.style.animationDelay = i * 0.002 + "s";
+    // Variación de tamaño para que se vea natural
+    let size = 6 + Math.random() * 6;
+    leaf.style.width = size + "px";
+    leaf.style.height = size + "px";
 
-  leavesContainer.appendChild(leaf);
+    // Variación de tonos rojo
+    const colors = ["#ff1a1a", "#e60026", "#ff4d4d", "#cc0022"];
+    leaf.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    leavesContainer.appendChild(leaf);
+  }
 }
 
 function isInsideHeart(x, y) {
