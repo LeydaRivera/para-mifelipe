@@ -37,14 +37,15 @@ body{
 }
 
 .trunk {
-    width: 35px;
-    height: 200px;
-    background: linear-gradient(to bottom, #8b5a2b, #5a2e12);
+    width: 30px;
+    height: 120px;
+    background: #6b3e26;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 10px;
+    border-radius: 5px;
+    animation: growTrunk 2s ease forwards;
 }
 
 @keyframes growTrunk {
@@ -54,7 +55,7 @@ body{
 
 .leaves {
     position: absolute;
-    bottom: 120px;
+    bottom: 180px;
     left: 50%;
     transform: translateX(-50%);
     width: 300px;
@@ -129,6 +130,7 @@ body{
     opacity:0;
   }
 }
+
 
 
 
