@@ -1,6 +1,6 @@
 const leavesContainer = document.getElementById("leaves");
 
-const totalLeaves = 400; // más cantidad = más relleno
+const totalLeaves = 600; // más cantidad = más relleno
 
 for (let i = 0; i < totalLeaves; i++) {
 
@@ -27,3 +27,4 @@ for (let i = 0; i < totalLeaves; i++) {
 function isInsideHeart(x, y) {
     return Math.pow(x*x + y*y - 1, 3) - x*x*y*y*y <= 0;
 }
+
