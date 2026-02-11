@@ -38,7 +38,7 @@ body{
 
 .trunk {
     width: 30px;
-    height: 120px;
+    height: 180px;
     background: #6b3e26;
     position: absolute;
     bottom: 0;
@@ -130,3 +130,4 @@ body{
     opacity:0;
   }
 }
+
