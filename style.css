@@ -32,20 +32,19 @@ body{
 .tree {
     position: relative;
     width: 300px;
-    height: 400px;
+    height: 450px; /* suficiente espacio */
     margin: 0 auto;
 }
 
 .trunk {
-    width: 30px;
-    height: 120px;
-    background: #6b3e26;
+    width: 35px;
+    height: 200px;
+    background: linear-gradient(to bottom, #8b5a2b, #5a2e12);
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px;
-    animation: growTrunk 2s ease forwards;
+    border-radius: 10px;
 }
 
 @keyframes growTrunk {
@@ -55,7 +54,7 @@ body{
 
 .leaves {
     position: absolute;
-    bottom: 180px;
+    bottom: 190px; /* un poco menos que la altura del tronco */
     left: 50%;
     transform: translateX(-50%);
     width: 300px;
@@ -130,8 +129,3 @@ body{
     opacity:0;
   }
 }
-
-
-
-
-
