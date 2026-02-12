@@ -40,31 +40,30 @@ body{
 .tree {
     position: absolute;
     bottom: 0;
-    right: 80px;              /* lo dejamos fijo a la derecha */
+    right: 80px;
     width: 300px;
     height: 450px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
 }
 
 /* TRONCO */
 
 .trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom;
+
     width: 35px;
     height: 200px;
     background: linear-gradient(to bottom, #8b5a2b, #5a2e12);
     border-radius: 10px;
 
-    transform: scaleY(0);
-    transform-origin: bottom;
     animation: growTrunk 2s forwards;
 }
 
 @keyframes growTrunk {
-    to { transform: scaleY(1); }
+    to { transform: translateX(-50%) scaleY(1); }
 }
 
 /* HOJAS */
@@ -72,6 +71,8 @@ body{
 .leaves {
     position: absolute;
     bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 300px;
     height: 300px;
 }
