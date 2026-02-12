@@ -1,13 +1,10 @@
 // ❤️ Texto personalizado
 const message = `
-Para: Mi Felipe 💜 mi guapo, precioso e increíble hombre
-
+Para: Mi Felipe,mi guapo, precioso e increíble hombre 💜
 Si pudiera elegir un lugar seguro,
 sin duda sería a tu lado.
-
 Cuanto más tiempo estoy contigo,
 más feliz y en paz me siento.
-
 — TE QUIERO MUCHO —
 `;
 
@@ -29,7 +26,7 @@ const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
 const center = 150; // centro real del contenedor 300x300
-const scale = 120; // tamaño del corazón
+const scale = 95; // tamaño del corazón
 const totalLeaves = 900;
 
 let created = 0;
@@ -97,3 +94,4 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
