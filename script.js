@@ -1,14 +1,14 @@
 // ❤️ Texto personalizado
 const message = `
-Para: Mi Felipe 💜 mi guapo, precioso en increible hombre
+Para: Mi Felipe 💜 mi guapo, precioso e increíble hombre
 
 Si pudiera elegir un lugar seguro,
-sin duda ería a tu lado.
+sin duda sería a tu lado.
 
 Cuanto más tiempo estoy contigo,
-más  feliz y en paz me siento.
+más feliz y en paz me siento.
 
-— TE QUIERO MUCHO—
+— TE QUIERO MUCHO —
 `;
 
 let i = 0;
@@ -24,42 +24,42 @@ function typeWriter() {
 }
 typeWriter();
 
-// 🌳 Corazón matemático
+// 🌳 Corazón matemático centrado
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const totalLeaves = 1200; // muchísimos para que se vea tupido
+const center = 150; // centro real del contenedor 300x300
+const scale = 120; // tamaño del corazón
+const totalLeaves = 900;
 
-for (let i = 0; i < totalLeaves; i++) {
-  const leaf = document.createElement("div");
-  leaf.classList.add("heart-leaf");
+let created = 0;
 
-  // Coordenadas más compactas
+while (created < totalLeaves) {
   let x = Math.random() * 2 - 1;
   let y = Math.random() * 2 - 1;
 
-  // Fórmula corazón escalada
+  // Fórmula del corazón
   let heart = Math.pow(x * x + y * y - 0.8, 3) - x * x * y * y * y;
 
   if (heart <= 0) {
-    leaf.style.left = 150 + x * 110 + "px";
-    leaf.style.top = 140 - y * 110 + "px";
+    const leaf = document.createElement("div");
+    leaf.classList.add("heart-leaf");
 
-    // Variación de tamaño para que se vea natural
+    leaf.style.left = center + x * scale + "px";
+    leaf.style.top = center - y * scale + "px";
+
+    // Tamaño aleatorio
     let size = 6 + Math.random() * 6;
     leaf.style.width = size + "px";
     leaf.style.height = size + "px";
 
-    // Variación de tonos rojo
+    // Tonos rojos
     const colors = ["#ff1a1a", "#e60026", "#ff4d4d", "#cc0022"];
     leaf.style.background = colors[Math.floor(Math.random() * colors.length)];
 
     leavesContainer.appendChild(leaf);
+    created++;
   }
-}
-
-function isInsideHeart(x, y) {
-  return Math.pow(x * x + y * y - 1, 3) - x * x * y * y * y <= 0;
 }
 
 // 💜 Corazones cayendo
@@ -76,10 +76,11 @@ function createFallingHeart() {
 
   setTimeout(() => heart.remove(), 7000);
 }
+
 setInterval(createFallingHeart, 400);
 
 // ⏳ Contador desde 2 de febrero
-const startDate = new Date("2026-02-02T00:00:00"); // cambia año si es necesario
+const startDate = new Date("2026-02-02T00:00:00");
 
 function updateTime() {
   const now = new Date();
