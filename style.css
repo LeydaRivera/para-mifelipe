@@ -70,7 +70,7 @@ body{
 
 .leaves {
     position: absolute;
-    bottom: 200px;
+    bottom: 170px;   /* antes 200px */
     left: 50%;
     transform: translateX(-50%);
     width: 300px;
@@ -146,4 +146,9 @@ body{
     transform:translateY(800px) rotate(45deg);
     opacity:0;
   }
+}
+
+#typed {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
