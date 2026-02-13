@@ -1,146 +1,89 @@
 body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Fondo Lila Gradiente */
-  background: linear-gradient(135deg, #E0BBE4, #9575CD); 
-  overflow: hidden;
-  font-family: 'Courier New', monospace;
-  color: #4b004f;
-}
-
-/* CARD */
-.card {
-  position: relative;
-  width: 800px;
-  height: 500px;
-  background: #ffffff; /* Blanco para que resalte */
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(128,0,128,0.2);
-  overflow: hidden;
-  border: 2px solid #D1C4E9;
-}
-
-/* TEXTO */
-.text {
-  position: absolute;
-  left: 40px;
-  top: 60px;
-  width: 40%;
-  border: 2px solid #9575CD;
-  padding: 20px;
-  border-radius: 15px;
-  background: white;
-  z-index: 2;
-}
-
-#typed {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.contador {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #673AB7;
-}
-
-/* ÁRBOL */
-.tree {
-    position: absolute;
-    bottom: 0;
-    right: 80px;
-    width: 300px;
-    height: 450px;
-}
-
-/* TRONCO */
-.trunk {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleY(0);
-    transform-origin: bottom;
-    width: 45px; /* Más ancho como en la imagen */
-    height: 150px; /* Ajustado para que las hojas luzcan más */
-    background: linear-gradient(to right, #5D4037, #3E2723, #5D4037); /* Efecto de relieve */
-    border-radius: 5px 5px 0 0;
-    animation: growTrunk 2s forwards;
-    z-index: 1;
-}
-
-@keyframes growTrunk {
-    to { transform: translateX(-50%) scaleY(1); }
-}
-
-/* HOJAS */
-.leaves {
-    position: absolute;
-    bottom: 120px; /* Bajamos un poco para que conecte con el tronco ancho */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 350px; /* Mucho más ancho */
-    height: 320px; /* Mucho más alto */
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    min-height: 100vh;
+    /* Fondo lila con patrón de corazones */
+    background-color: #e0bbe4;
+    background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+    font-family: 'Arial', sans-serif;
 }
 
-/* ESTILO HOJA CORAZÓN (Se genera con JS) */
-.heart-leaf {
-    position: absolute;
-    width: 20px;  /* De 15px subimos a 20px */
-    height: 20px;
-    background: #FF4081; /* Un rosa más vivo */
-    transform: rotate(45deg);
-    animation: fadeIn 1s forwards;
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    width: 90%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 50px; /* Bordes muy redondeados como en la imagen */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 15px solid #d4a5d9; /* Borde grueso lila */
 }
 
-.heart-leaf::before, .heart-leaf::after {
-    content: '';
-    position: absolute;
-    width: 20px; /* Igual que el padre */
-    height: 20px;
-    background: inherit;
-    border-radius: 50%;
-}
-.heart-leaf::before { top: -10px; left: 0; } /* Ajustado al nuevo tamaño */
-.heart-leaf::after { left: -10px; top: 0; }
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0) rotate(45deg); }
-    to { opacity: 1; transform: scale(1) rotate(45deg); }
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
 }
 
-/* CORAZONES CAYENDO */
-.falling-hearts {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none;
+.text-section {
+    flex: 1;
+    padding-right: 20px;
 }
 
-.fall {
-  position: absolute;
-  width: 10px; height: 10px;
-  background: #BA68C8;
-  transform: rotate(45deg);
-  animation: fall linear infinite;
+.tree-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
-.fall::before, .fall::after {
-  content: ""; position: absolute;
-  width: 10px; height: 10px;
-  background: inherit; border-radius: 50%;
-}
-.fall::before { top: -5px; left: 0; }
-.fall::after { left: -5px; top: 0; }
-
-@keyframes fall {
-  0% { transform: translateY(-50px) rotate(45deg); opacity: 1; }
-  100% { transform: translateY(550px) rotate(45deg); opacity: 0; }
+.tree-section img {
+    width: 100%;
+    max-width: 250px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
 }
 
+h2 {
+    color: #8e24aa;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.message {
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.signature {
+    display: block;
+    margin-top: 20px;
+    color: #8e24aa;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.timer-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.timer-title {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#counter {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* La línea horizontal de la imagen */
+.linea-decorativa {
+    border: none;
+    border-top: 3px solid #8e24aa;
+    margin-top: 10px;
+    width: 100%;
+}
