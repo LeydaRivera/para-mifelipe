@@ -1,20 +1,29 @@
-/* CONTENEDOR DEL CORAZÓN */
-.tree {
+/* CONTENEDOR DEL CORAZÓN (CENTRADO ABAJO) */
+.heart-wrapper {
     position: absolute;
-    bottom: 40px;
-    right: 50px;
-    width: 460px;
-    height: 460px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 420px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ÁREA DONDE SE FORMA EL CORAZÓN */
-.leaves {
-    position: relative;
+/* ÁREA DONDE SE DIBUJA EL CORAZÓN */
+.tree {
     width: 420px;
     height: 420px;
+    position: relative;
+}
+
+/* CONTENEDOR INTERNO */
+.leaves {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 /* CORAZONES INDIVIDUALES */
@@ -22,7 +31,7 @@
     position: absolute;
     transform: rotate(45deg);
     animation: fadeIn 0.8s ease forwards;
-    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.2));
+    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.25));
 }
 
 .heart-leaf::before,
@@ -31,7 +40,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background:#ce93d8;
+    background: inherit;
     border-radius: 50%;
 }
 
@@ -49,4 +58,3 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
