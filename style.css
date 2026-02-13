@@ -19,36 +19,37 @@ body{
   border-radius:20px;
   box-shadow:0 0 40px rgba(128,0,128,0.4);
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
 }
 
 /* TEXTO */
 .text{
-  position:absolute;
-  top:40px;
-  left:50%;
-  transform:translateX(-50%);
-  width:60%;
+  padding:40px;
+  width:50%;
   border:2px solid #9c27b0;
-  padding:20px;
   border-radius:15px;
   background:white;
-  text-align:center;
+  margin:40px;
+  z-index:2;
 }
 
 #typed {
   white-space: pre-wrap;
-  word-wrap: break-word;
+}
+/* ÁREA INFERIOR */
+
+.bottom-area{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
 }
 
 /* CORAZÓN CENTRADO ABAJO */
 .heart-wrapper {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 420px;
   height: 400px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,3 +142,4 @@ body{
     opacity:0;
   }
 }
+
