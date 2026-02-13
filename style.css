@@ -55,7 +55,7 @@ body{
     transform-origin: bottom;
 
     width: 35px;
-    height: 200px;
+    height: 220px;
     background: linear-gradient(to bottom, #8b5a2b, #5a2e12);
     border-radius: 10px;
 
@@ -70,11 +70,11 @@ body{
 
 .leaves {
     position: absolute;
-    bottom: 170px;   /* antes 200px */
+    bottom: 190px;   /* ajusta hasta que toque */
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
 }
 
 /* HOJAS CORAZÓN */
