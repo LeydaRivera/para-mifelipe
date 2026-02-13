@@ -31,21 +31,18 @@ typeWriter();
 // ❤️ CORAZÓN MÁS ANCHO Y MENOS TUPIDO
 const leavesContainer = document.getElementById("leaves");
 
-let centerX;
-let centerY;
-let scale;
-let totalLeaves = 240;
+const totalLeaves = 240;
 
-// Ajuste dinámico según tamaño
-if (window.innerWidth < 768) {
-  centerX = 115;
-  centerY = 120;
-  scale = 90;
-} else {
-  centerX = 150;
-  centerY = 160;
-  scale = 120;
-}
+const treeElement = document.querySelector(".tree");
+const treeWidth = treeElement.offsetWidth;
+const treeHeight = treeElement.offsetHeight;
+
+// Centro dinámico
+const centerX = treeWidth / 2;
+const centerY = treeHeight / 2;
+
+// Escala proporcional al tamaño real
+const scale = treeWidth / 2.2;
 
 let created = 0;
 
@@ -115,6 +112,7 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
 
 
 
