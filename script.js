@@ -1,7 +1,7 @@
 
  // CONFIGURACIÓN: Año, Mes (0-11), Día, Hora, Minuto
 // Ejemplo: 20 de Mayo de 2024 -> (2024, 4, 20, 0, 0, 0)
-const fechaInicio = new Date(2026, 2, 02, 0, 0, 0); 
+const fechaInicio = new Date(2026, 1, 2, 0, 0, 0); 
 
 function actualizarContador() {
     const ahora = new Date();
@@ -22,4 +22,5 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
+
 
