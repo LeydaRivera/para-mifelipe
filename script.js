@@ -11,106 +11,26 @@ más feliz y en paz me siento.
 — TE QUIERO MUCHO —
 `;
 
-let i = 0;
-const speed = 40;
-const container = document.getElementById("typed");
+ // CONFIGURACIÓN: Año, Mes (0-11), Día, Hora, Minuto
+// Ejemplo: 20 de Mayo de 2024 -> (2024, 4, 20, 0, 0, 0)
+const fechaInicio = new Date(2026, 2, 02, 0, 0, 0); 
 
-function typeWriter() {
-  if (i < message.length) {
-    container.innerHTML += message.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-typeWriter();
+function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio;
 
-// 🌳 Corazón matemático centrado
-// ❤️ Corazón grande elegante
-const leavesContainer = document.getElementById("leaves");
-leavesContainer.innerHTML = "";
+    const segundosTotales = Math.floor(diferencia / 1000);
+    const minutosTotales = Math.floor(segundosTotales / 60);
+    const horasTotales = Math.floor(minutosTotales / 60);
+    
+    const dias = Math.floor(horasTotales / 24);
+    const horas = horasTotales % 24;
+    const minutos = minutosTotales % 60;
+    const segundos = segundosTotales % 60;
 
-const center = 190;
-const scale = 160;       // más grande
-const totalLeaves = 550; // menos tupido
-
-let created = 0;
-
-function growHeart() {
-  if (created >= totalLeaves) return;
-
-  let x = Math.random() * 2 - 1;
-  let y = Math.random() * 2 - 1;
-
-  let heart = Math.pow(x * x + y * y - 0.9, 3) - x * x * y * y * y;
-
-  if (heart <= 0) {
-    const leaf = document.createElement("div");
-    leaf.classList.add("heart-leaf");
-
-    leaf.style.left = center + x * scale + "px";
-    leaf.style.top = center - y * scale + "px";
-
-    let size = 8 + Math.random() * 8;
-    leaf.style.width = size + "px";
-    leaf.style.height = size + "px";
-
-    // 🎨 degradado rojo suave
-    const lightness = 50 + Math.random() * 25;
-    leaf.style.background = `hsl(0, 85%, ${lightness}%)`;
-
-    leaf.style.opacity = 0;
-    leaf.style.transition = "opacity 0.5s ease";
-
-    leavesContainer.appendChild(leaf);
-
-    setTimeout(() => {
-      leaf.style.opacity = 1;
-    }, 20);
-
-    created++;
-  }
-
-  requestAnimationFrame(growHeart);
+    document.getElementById('counter').innerHTML = 
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
 }
 
-growHeart();
-
-  
-
-// 💜 Corazones cayendo
-const falling = document.querySelector(".falling-hearts");
-
-function createFallingHeart() {
-  let heart = document.createElement("div");
-  heart.classList.add("fall");
-
-  heart.style.left = Math.random() * 100 + "%";
-  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-
-  falling.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 7000);
-}
-
-setInterval(createFallingHeart, 400);
-
-// ⏳ Contador desde 2 de febrero
-const startDate = new Date("2026-02-02T00:00:00");
-
-function updateTime() {
-  const now = new Date();
-  const diff = now - startDate;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("time").innerText =
-    `${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
-}
-
-setInterval(updateTime, 1000);
-updateTime();
-
-
+setInterval(actualizarContador, 1000);
+actualizarContador();
