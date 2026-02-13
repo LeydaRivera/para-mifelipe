@@ -1,10 +1,13 @@
 // ❤️ Texto personalizado
 const message = `
-Para: Mi Felipe,mi guapo, precioso e increíble hombre 💜
+Para: Mi Felipe 💜 mi guapo, precioso e increíble hombre
+
 Si pudiera elegir un lugar seguro,
 sin duda sería a tu lado.
+
 Cuanto más tiempo estoy contigo,
 más feliz y en paz me siento.
+
 — TE QUIERO MUCHO —
 `;
 
@@ -22,20 +25,22 @@ function typeWriter() {
 typeWriter();
 
 // 🌳 Corazón matemático centrado
+// 🌳 Corazón animado creciendo poco a poco
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const center = 150; // centro real del contenedor 300x300
-const scale = 95; // tamaño del corazón
-const totalLeaves = 900;
+const center = 130;
+const scale = 90;
+const totalLeaves = 450;
 
 let created = 0;
 
-while (created < totalLeaves) {
+function growHeart() {
+  if (created >= totalLeaves) return;
+
   let x = Math.random() * 2 - 1;
   let y = Math.random() * 2 - 1;
 
-  // Fórmula del corazón
   let heart = Math.pow(x * x + y * y - 0.8, 3) - x * x * y * y * y;
 
   if (heart <= 0) {
@@ -45,19 +50,31 @@ while (created < totalLeaves) {
     leaf.style.left = center + x * scale + "px";
     leaf.style.top = center - y * scale + "px";
 
-    // Tamaño aleatorio
-    let size = 6 + Math.random() * 6;
+    let size = 7 + Math.random() * 6;
     leaf.style.width = size + "px";
     leaf.style.height = size + "px";
 
-    // Tonos rojos
-    const colors = ["#ff1a1a", "#e60026", "#ff4d4d", "#cc0022"];
-    leaf.style.background = colors[Math.floor(Math.random() * colors.length)];
+    // 🎨 Degradado rojo natural
+    const hue = 0; // rojo
+    const lightness = 45 + Math.random() * 25;
+    leaf.style.background = `hsl(${hue}, 85%, ${lightness}%)`;
+
+    leaf.style.opacity = 0;
+    leaf.style.transition = "opacity 0.6s ease";
 
     leavesContainer.appendChild(leaf);
+
+    setTimeout(() => {
+      leaf.style.opacity = 1;
+    }, 50);
+
     created++;
   }
+
+  requestAnimationFrame(growHeart);
 }
+
+growHeart();
 
 // 💜 Corazones cayendo
 const falling = document.querySelector(".falling-hearts");
@@ -94,4 +111,3 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
-
