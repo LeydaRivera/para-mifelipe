@@ -25,14 +25,13 @@ function typeWriter() {
 typeWriter();
 
 // 🌳 Corazón matemático centrado
-// 🌳 Corazón animado creciendo poco a poco
+// ❤️ Corazón grande elegante
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const centerX = 130;
-const centerY = 160; // bajamos el corazón
-const scale = 90;
-const totalLeaves = 450;
+const center = 190;
+const scale = 160;       // más grande
+const totalLeaves = 550; // menos tupido
 
 let created = 0;
 
@@ -42,32 +41,31 @@ function growHeart() {
   let x = Math.random() * 2 - 1;
   let y = Math.random() * 2 - 1;
 
-  let heart = Math.pow(x * x + y * y - 0.8, 3) - x * x * y * y * y;
+  let heart = Math.pow(x * x + y * y - 0.9, 3) - x * x * y * y * y;
 
   if (heart <= 0) {
     const leaf = document.createElement("div");
     leaf.classList.add("heart-leaf");
 
-   leaf.style.left = centerX + x * scale + "px";
-   leaf.style.top = centerY - y * scale + "px";
+    leaf.style.left = center + x * scale + "px";
+    leaf.style.top = center - y * scale + "px";
 
-    let size = 7 + Math.random() * 6;
+    let size = 8 + Math.random() * 8;
     leaf.style.width = size + "px";
     leaf.style.height = size + "px";
 
-    // 🎨 Degradado rojo natural
-    const hue = 0; // rojo
-    const lightness = 45 + Math.random() * 25;
-    leaf.style.background = `hsl(${hue}, 85%, ${lightness}%)`;
+    // 🎨 degradado rojo suave
+    const lightness = 50 + Math.random() * 25;
+    leaf.style.background = `hsl(0, 85%, ${lightness}%)`;
 
     leaf.style.opacity = 0;
-    leaf.style.transition = "opacity 0.6s ease";
+    leaf.style.transition = "opacity 0.5s ease";
 
     leavesContainer.appendChild(leaf);
 
     setTimeout(() => {
       leaf.style.opacity = 1;
-    }, 50);
+    }, 20);
 
     created++;
   }
@@ -76,6 +74,8 @@ function growHeart() {
 }
 
 growHeart();
+
+  
 
 // 💜 Corazones cayendo
 const falling = document.querySelector(".falling-hearts");
@@ -112,4 +112,5 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
 
