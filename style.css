@@ -1,47 +1,51 @@
-/* 1. ELIMINAMOS .trunk del CSS ya que no lo usaremos */
-
-/* 2. AJUSTE DEL CONTENEDOR DEL CORAZÓN (Más ancho y centrado) */
+/* CONTENEDOR DEL CORAZÓN */
 .tree {
     position: absolute;
-    bottom: 50px; /* Lo subimos un poco para que no quede pegado al borde */
+    bottom: 40px;
     right: 50px;
-    width: 450px;  /* Aumentamos el ancho total */
-    height: 450px;
+    width: 460px;
+    height: 460px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 3. AJUSTE DE LAS HOJAS (El área donde brotan los corazones) */
+/* ÁREA DONDE SE FORMA EL CORAZÓN */
 .leaves {
     position: relative;
-    width: 400px;  /* Mucho más ancho para que el corazón se vea expandido */
-    height: 350px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    /* Quitamos el bottom: 120px para que flote libremente */
+    width: 420px;
+    height: 420px;
 }
 
-/* 4. CORAZONES INDIVIDUALES (Un poco más grandes para rellenar mejor) */
+/* CORAZONES INDIVIDUALES */
 .heart-leaf {
     position: absolute;
-    width: 25px;   /* Aumentamos a 25px para que se vea más tupido */
-    height: 25px;
-    background: #FF4081; 
     transform: rotate(45deg);
-    animation: fadeIn 1s forwards;
-    filter: drop-shadow(0 0 5px rgba(255, 64, 129, 0.3)); /* Sutil brillo rosa */
+    animation: fadeIn 0.8s ease forwards;
+    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.2));
 }
 
-.heart-leaf::before, .heart-leaf::after {
+.heart-leaf::before,
+.heart-leaf::after {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 100%;
+    height: 100%;
     background: inherit;
     border-radius: 50%;
 }
-.heart-leaf::before { top: -12px; left: 0; }
-.heart-leaf::after { left: -12px; top: 0; }
+
+.heart-leaf::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart-leaf::after {
+    left: -50%;
+    top: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
