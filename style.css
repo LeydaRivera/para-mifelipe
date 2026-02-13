@@ -138,5 +138,35 @@ body{
     opacity:0;
   }
 }
+/* ========================= */
+/* 📱 RESPONSIVE CELULAR */
+/* ========================= */
+
+@media (max-width: 768px){
+
+  .card{
+    width:95%;
+    height:auto;
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .text{
+    width:100%;
+    margin:0 0 20px 0;
+    padding:20px;
+  }
+
+  .heart-wrapper{
+    width:250px;
+    height:250px;
+  }
+
+  .tree{
+    width:230px;
+    height:230px;
+  }
+
+}
 
 
