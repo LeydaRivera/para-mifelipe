@@ -1,12 +1,13 @@
-// ❤️ Texto personalizado con efecto de escritura
+// ❤️ Texto con efecto escritura
 const message = `
-Para: Mi Felipe 💜 mi guapo, precioso e increíble hombre
+Para: Mi Felipe 💜 mi precioso e increíble hombre
 
 Si pudiera elegir un lugar seguro,
 sin duda sería a tu lado.
-
 Cuanto más tiempo estoy contigo,
 más feliz y en paz me siento.
+No solo quiero que seas mi San Valentin, si no mi compañero
+de vida.
 
 — TE QUIERO MUCHO —
 `;
@@ -20,30 +21,29 @@ function typeWriter() {
     container.innerHTML += message.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
+  } else {
+    growHeart(); // empieza el corazón cuando termina el texto
   }
 }
 typeWriter();
 
 
-// ❤️ CORAZÓN GRANDE, MÁS ANCHO Y MENOS TUPIDO
+// ❤️ CORAZÓN MÁS ANCHO Y MENOS TUPIDO
 const leavesContainer = document.getElementById("leaves");
-leavesContainer.innerHTML = "";
 
-const centerX = 210;
-const centerY = 240;
-const scale = 180;       // tamaño general
-const totalLeaves = 260; // menos tupido
+const centerX = 190;
+const centerY = 210;
+const scale = 160;
+const totalLeaves = 260;
 
 let created = 0;
 
 function growHeart() {
   if (created >= totalLeaves) return;
 
-  // Más ancho horizontal
   let x = Math.random() * 2.8 - 1.4;
   let y = Math.random() * 2.6 - 1.3;
 
-  // Fórmula clásica real del corazón
   let heartShape = Math.pow(x*x + y*y - 1, 3) - x*x*y*y*y;
 
   if (heartShape <= 0) {
@@ -57,19 +57,15 @@ function growHeart() {
     leaf.style.width = size + "px";
     leaf.style.height = size + "px";
 
-    // Degradado rojo natural elegante
     const lightness = 55 + Math.random() * 20;
     leaf.style.background = `hsl(0, 85%, ${lightness}%)`;
 
     leavesContainer.appendChild(leaf);
-
     created++;
   }
 
   requestAnimationFrame(growHeart);
 }
-
-growHeart();
 
 
 // 💜 Lluvia de corazones
@@ -83,14 +79,13 @@ function createFallingHeart() {
   heart.style.animationDuration = Math.random() * 3 + 4 + "s";
 
   falling.appendChild(heart);
-
   setTimeout(() => heart.remove(), 7000);
 }
 
 setInterval(createFallingHeart, 400);
 
 
-// ⏳ Contador desde el 2 de febrero
+// ⏳ Contador
 const startDate = new Date("2026-02-02T00:00:00");
 
 function updateTime() {
