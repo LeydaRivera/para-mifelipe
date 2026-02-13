@@ -1,30 +1,141 @@
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #ff4d8d;
-    background-image: radial-gradient(circle, #ff85b2 10%, transparent 10%), radial-gradient(circle, #ff85b2 10%, transparent 10%);
-    background-size: 50px 50px;
-    background-position: 0 0, 25px 25px;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Fondo Lila Gradiente */
+  background: linear-gradient(135deg, #E0BBE4, #9575CD); 
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  color: #4b004f;
 }
 
+/* CARD */
 .card {
-    background: white;
-    width: 85%;
-    max-width: 350px;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    text-align: center;
-    border: 4px solid #f8bbd0;
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: #ffffff; /* Blanco para que resalte */
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(128,0,128,0.2);
+  overflow: hidden;
+  border: 2px solid #D1C4E9;
 }
 
-h2 { color: #d81b60; font-size: 1.4rem; }
-.message { color: #444; line-height: 1.5; margin-bottom: 15px; }
-.tree-container img { width: 130px; margin: 15px 0; }
-.signature { font-weight: bold; color: #d81b60; display: block; margin-top: 8px; }
-.timer-title { margin-top: 20px; font-size: 1rem; color: #666; }
-#counter { font-size: 1rem; font-weight: bold; color: #333; background: #fff0f5; padding: 12px; border-radius: 10px; margin-top: 10px; }
+/* TEXTO */
+.text {
+  position: absolute;
+  left: 40px;
+  top: 60px;
+  width: 40%;
+  border: 2px solid #9575CD;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  z-index: 2;
+}
+
+#typed {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.contador {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #673AB7;
+}
+
+/* ÁRBOL */
+.tree {
+    position: absolute;
+    bottom: 0;
+    right: 80px;
+    width: 300px;
+    height: 450px;
+}
+
+/* TRONCO */
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom;
+    width: 30px;
+    height: 180px;
+    background: linear-gradient(to bottom, #6D4C41, #3E2723);
+    border-radius: 10px;
+    animation: growTrunk 2s forwards;
+}
+
+@keyframes growTrunk {
+    to { transform: translateX(-50%) scaleY(1); }
+}
+
+/* HOJAS */
+.leaves {
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 260px;
+}
+
+/* ESTILO HOJA CORAZÓN (Se genera con JS) */
+.heart-leaf {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #FF80AB;
+    transform: rotate(45deg);
+    animation: fadeIn 1s forwards;
+}
+
+.heart-leaf::before, .heart-leaf::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: inherit;
+    border-radius: 50%;
+}
+.heart-leaf::before { top: -8px; left: 0; }
+.heart-leaf::after { left: -8px; top: 0; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0) rotate(45deg); }
+    to { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+
+/* CORAZONES CAYENDO */
+.falling-hearts {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.fall {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: #BA68C8;
+  transform: rotate(45deg);
+  animation: fall linear infinite;
+}
+
+.fall::before, .fall::after {
+  content: ""; position: absolute;
+  width: 10px; height: 10px;
+  background: inherit; border-radius: 50%;
+}
+.fall::before { top: -5px; left: 0; }
+.fall::after { left: -5px; top: 0; }
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(550px) rotate(45deg); opacity: 0; }
+}
