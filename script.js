@@ -24,58 +24,62 @@ function typeWriter() {
 }
 typeWriter();
 
-// 🌳 Corazón matemático centrado (Árbol de corazones)
+// 🌳 Corazón más ancho, definido y menos tupido
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const center = 130; // Centro relativo al contenedor
-const scale = 95;  // Tamaño del árbol
-const totalLeaves = 450; // Cantidad de hojitas
+const centerX = 210;
+const centerY = 230;
+const scale = 170;      // más grande
+const totalLeaves = 300; // menos tupido
 
 let created = 0;
 
 function growHeart() {
   if (created >= totalLeaves) return;
 
-  let x = Math.random() * 2 - 1;
-  let y = Math.random() * 2 - 1;
+  // Más ancho horizontal
+  let x = Math.random() * 2.4 - 1.2;
+  let y = Math.random() * 2.4 - 1.2;
 
-  // Fórmula matemática para dar forma de corazón al árbol
-  let heartShape = Math.pow(x * x + y * y - 0.8, 3) - x * x * y * y * y;
+  // Fórmula clásica REAL del corazón
+  let heartShape = Math.pow(x*x + y*y - 1, 3) - x*x*y*y*y;
 
   if (heartShape <= 0) {
     const leaf = document.createElement("div");
     leaf.classList.add("heart-leaf");
 
-    // Posicionamiento basado en la fórmula
-    leaf.style.left = center + x * scale + "px";
-    leaf.style.top = center - y * scale + "px";
+    leaf.style.left = centerX + x * scale + "px";
+    leaf.style.top = centerY - y * scale + "px";
 
-    let size = 6 + Math.random() * 8;
+    let size = 8 + Math.random() * 6;
     leaf.style.width = size + "px";
     leaf.style.height = size + "px";
 
-    // 🎨 Colores de las hojas (Tonos rojizos/rosados)
-    const lightness = 45 + Math.random() * 25;
-    leaf.style.background = `hsl(340, 85%, ${lightness}%)`;
+    // Rojo degradado natural
+    const lightness = 50 + Math.random() * 20;
+    leaf.style.background = `hsl(0, 85%, ${lightness}%)`;
 
     leaf.style.opacity = 0;
-    leaf.style.transition = "opacity 0.8s ease";
+    leaf.style.transition = "opacity 0.6s ease";
 
     leavesContainer.appendChild(leaf);
 
     setTimeout(() => {
       leaf.style.opacity = 1;
-    }, 50);
+    }, 30);
 
     created++;
   }
 
-  // Animación suave de crecimiento
   requestAnimationFrame(growHeart);
 }
 
 growHeart();
+
+  
+
+    
 
 // 💜 Lluvia de corazones constante
 const falling = document.querySelector(".falling-hearts");
@@ -117,3 +121,4 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
