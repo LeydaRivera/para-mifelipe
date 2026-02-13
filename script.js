@@ -31,10 +31,15 @@ typeWriter();
 // ❤️ CORAZÓN MÁS ANCHO Y MENOS TUPIDO
 const leavesContainer = document.getElementById("leaves");
 
-const centerX = 150;
-const centerY = 160;
-const scale = 120;
-const totalLeaves = 220;
+let centerX = 150;
+let centerY = 160;
+let scale = 120;
+
+if (window.innerWidth < 768) {
+  centerX = 115;
+  centerY = 125;
+  scale = 90;
+}
 
 let created = 0;
 
@@ -104,4 +109,5 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
 
