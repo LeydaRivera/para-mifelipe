@@ -29,7 +29,8 @@ typeWriter();
 const leavesContainer = document.getElementById("leaves");
 leavesContainer.innerHTML = "";
 
-const center = 130;
+const centerX = 130;
+const centerY = 160; // bajamos el corazón
 const scale = 90;
 const totalLeaves = 450;
 
@@ -47,8 +48,8 @@ function growHeart() {
     const leaf = document.createElement("div");
     leaf.classList.add("heart-leaf");
 
-    leaf.style.left = center + x * scale + "px";
-    leaf.style.top = center - y * scale + "px";
+   leaf.style.left = centerX + x * scale + "px";
+   leaf.style.top = centerY - y * scale + "px";
 
     let size = 7 + Math.random() * 6;
     leaf.style.width = size + "px";
@@ -111,3 +112,4 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
