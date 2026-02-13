@@ -1,15 +1,3 @@
-// ❤️ Texto personalizado
-const message = `
-Para: Mi Felipe 💜 mi guapo, precioso e increíble hombre
-
-Si pudiera elegir un lugar seguro,
-sin duda sería a tu lado.
-
-Cuanto más tiempo estoy contigo,
-más feliz y en paz me siento.
-
-— TE QUIERO MUCHO —
-`;
 
  // CONFIGURACIÓN: Año, Mes (0-11), Día, Hora, Minuto
 // Ejemplo: 20 de Mayo de 2024 -> (2024, 4, 20, 0, 0, 0)
@@ -34,3 +22,4 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
+
