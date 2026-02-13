@@ -1,89 +1,47 @@
-body {
-    margin: 0;
+/* 1. ELIMINAMOS .trunk del CSS ya que no lo usaremos */
+
+/* 2. AJUSTE DEL CONTENEDOR DEL CORAZÓN (Más ancho y centrado) */
+.tree {
+    position: absolute;
+    bottom: 50px; /* Lo subimos un poco para que no quede pegado al borde */
+    right: 50px;
+    width: 450px;  /* Aumentamos el ancho total */
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    /* Fondo lila con patrón de corazones */
-    background-color: #e0bbe4;
-    background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
-    font-family: 'Arial', sans-serif;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.9);
-    width: 90%;
-    max-width: 700px;
-    padding: 40px;
-    border-radius: 50px; /* Bordes muy redondeados como en la imagen */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 15px solid #d4a5d9; /* Borde grueso lila */
-}
-
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-}
-
-.text-section {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.tree-section {
-    flex: 1;
+/* 3. AJUSTE DE LAS HOJAS (El área donde brotan los corazones) */
+.leaves {
+    position: relative;
+    width: 400px;  /* Mucho más ancho para que el corazón se vea expandido */
+    height: 350px; 
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /* Quitamos el bottom: 120px para que flote libremente */
 }
 
-.tree-section img {
-    width: 100%;
-    max-width: 250px;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+/* 4. CORAZONES INDIVIDUALES (Un poco más grandes para rellenar mejor) */
+.heart-leaf {
+    position: absolute;
+    width: 25px;   /* Aumentamos a 25px para que se vea más tupido */
+    height: 25px;
+    background: #FF4081; 
+    transform: rotate(45deg);
+    animation: fadeIn 1s forwards;
+    filter: drop-shadow(0 0 5px rgba(255, 64, 129, 0.3)); /* Sutil brillo rosa */
 }
 
-h2 {
-    color: #8e24aa;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+.heart-leaf::before, .heart-leaf::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: inherit;
+    border-radius: 50%;
 }
-
-.message {
-    color: #555;
-    font-size: 1.2rem;
-    line-height: 1.4;
-}
-
-.signature {
-    display: block;
-    margin-top: 20px;
-    color: #8e24aa;
-    font-weight: bold;
-    font-size: 1.4rem;
-}
-
-.timer-section {
-    margin-top: 30px;
-    text-align: left;
-}
-
-.timer-title {
-    color: #666;
-    margin-bottom: 5px;
-}
-
-#counter {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: bold;
-}
-
-/* La línea horizontal de la imagen */
-.linea-decorativa {
-    border: none;
-    border-top: 3px solid #8e24aa;
-    margin-top: 10px;
-    width: 100%;
-}
+.heart-leaf::before { top: -12px; left: 0; }
+.heart-leaf::after { left: -12px; top: 0; }
